@@ -1,6 +1,6 @@
 # 🧠 Algorithm Solution Archive
 
-**SSAFY 15기** | 꾸준한 문제 풀이와 기록을 위한 저장소입니다.  
+꾸준한 문제 풀이와 기록을 위한 저장소입니다.  
 `Java`와 `Python`을 주력으로 사용합니다.
 
 <br>
