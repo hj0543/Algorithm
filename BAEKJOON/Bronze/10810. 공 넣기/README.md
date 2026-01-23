@@ -1,4 +1,4 @@
-[문제링크](https://www.acmicpc.net/problem/2562)
+[문제링크](https://www.acmicpc.net/problem/10810)
 
 ### 풀이 결과
 - 메모리 : 32,412 KB
