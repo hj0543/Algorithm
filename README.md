@@ -6,6 +6,8 @@
 <br>
 
 ## 🏆 My Solved.ac Status
+<img src="https://img.shields.io/badge/SWEA-D20101?style=for-the-badge&logo=samsung&logoColor=white" height="40"> <img src="https://img.shields.io/badge/Tier-Basic-yellowgreen?style=for-the-badge" height="40">
+
 [![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=hj0543)](https://solved.ac/hj0543)
 
 <br>
