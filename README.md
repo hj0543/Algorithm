@@ -1,6 +1,6 @@
 # 🧠 Algorithm Solution Archive
 
-꾸준한 문제 풀이와 기록을 위한 저장소입니다.  
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=2E91F7&width=435&lines=while(alive)+solve();Daily+Commit;Step+by+Step%2C+Level+Up!" alt="Typing SVG" />
 `Java`와 `Python`을 주력으로 사용합니다.
 
 <br>
