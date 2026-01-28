@@ -1,7 +1,9 @@
 # 🧠 Algorithm Solution Archive
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=2E91F7&width=435&lines=while(alive)+solve();Daily+Commit;Step+by+Step%2C+Level+Up!" alt="Typing SVG" />
-`Java`와 `Python`을 주력으로 사용합니다.
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=2E91F7&width=435&lines=Slow+but+Steady;Daily+over+1+Commit;Step+by+Step%2C+Level+Up!" alt="Typing SVG" />
+`Python`을 주력으로 사용합니다.    
+
+**2026.01.28** 백준연동 자동커밋푸시 작업 [HOW TO?](https://github.com/BaekjoonHub/BaekjoonHub)
 
 <br>
 
@@ -22,7 +24,7 @@
 
 ```text
 📦 Algorithm
- ┣ 📂 BAEKJOON
+ ┣ 📂 백준
  ┃ ┣ 📂 Bronze   # 브론즈
  ┃ ┣ 📂 Silver   # 실버
  ┃ ┗ 📂 Gold     # 골드
