@@ -16,4 +16,22 @@ while N > 1: # 나누는 수가  N 몫나눗셈 2 작을동안 실행
 #     print(j)
 
 
+
 # 72 -> 36 -> 18 -> 9 -> 3 -> 1
+'''
+value = int(input())
+
+while value % 2 == 0:
+    print(2)
+    value //= 2
+
+i = 3
+while i * i <= value:
+    while value % i == 0:
+        print(i)
+        value //= i
+    i += 2
+
+if value > 1:
+    print(value)
+'''
