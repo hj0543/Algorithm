@@ -1,26 +1,24 @@
 import sys
 sys.stdin = open('input.txt', 'r')
 
-def factorial(a): # 팩토리얼 함수
-    fact = 1
-    for i in range(1, a + 1):
-        fact *= i
-    return fact
+# 1448
+import sys
+input = sys.stdin.readline
+N = int(input())
 
- # 조합 = M!/ (M-m)! * m!
-
-def comb(x, y): # 조합 함수 (x < y)
-    result = factorial(y)/(factorial(y - x) * factorial(x))    
-    return result
+length = [] # 빨대의 길이 리스트
+for _ in range(N):
+    T = int(input())
+    length.append(T)
 
 
-T = int(input())
+'''
+가장 긴 것 3개가 안되면 짧은거 3개라도 해봐야함.. 이 부분 수정필요
+'''
 
+sort_length = sorted(length) # 정렬해서 TOP3 뽑아내기 위해
+if sort_length[-1] < sort_length[-2] + sort_length[-3]: # 삼각형이 만들어지는 조건
+    print(sum(sort_length[-3:])) # 가장 긴 변의 길이 3개 합
+else:
+    print(-1) # 만약 삼각형을 만들 수 없으면 -1을 출력한다.
 
-for i in range(T):
-    N, M = list(map(int, input().split())) # N <= M
-
-    if N == M:
-        print(1)
-    else:
-        print(int(comb(N, M)))
