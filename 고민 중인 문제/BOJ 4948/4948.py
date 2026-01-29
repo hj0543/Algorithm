@@ -23,13 +23,13 @@ input = sys.stdin.readline
 #     return True # 소수임
 
 
-# def is_prime_simple(n):
-#     if n < 2: 
-#         return False
-#     for i in range(2, n):
-#         if n % i == 0:
-#             return False
-#     return True
+def is_prime_simple(n):
+    if n < 2: 
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
 
 ########################################################################
 
