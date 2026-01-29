@@ -10,9 +10,9 @@ for _ in range(T):
     A, B = AB[0], AB[1]
 
 
-    G = math.gcd(A, B)
+    G = math.gcd(A, B) # 최대공약수 구하는 math 함수
 
-    L = A * B // G
+    L = A * B // G # 최소공배수는 '두 수의 곱 / 최대공약수' 니까
     # i_list = [] # 소인수분해 된 수들을 담을 빈 lsit
 
     
@@ -43,5 +43,6 @@ for _ in range(T):
     # #         total *= i_list[j] # 최대공약수 만들기
 
     #     print((AB[0] * AB[1]) // total) # 최소공배수는 '두 수의 곱 / 최대공약수' 니까
+
 
     print(L)
