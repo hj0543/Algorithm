@@ -1,25 +1,50 @@
 import sys
 sys.stdin = open('input.txt', 'r')
 
-# 11653
+# 42476
 import sys
 input = sys.stdin.readline
-N = int(input())
 
-d = 2 # 소인수분해 최소 2로 나누기때문에 초기값 2
+n = int(input())
+nums = list(map(int, input().split()))
 
-# prime = [] # 소인수분해 한 소수들 들어갈 리스트
+if n == 1:
+    print(1)
+    sys.exit()
 
-while N > 1: # 나누는 수가  N 몫나눗셈 2 작을동안 실행
-    if (N % d) == 0: # N을 d로 나눴을 때 0이면
-        print(d)
-        N /= d
 
+cnt1 = []
+cnt2 = []
+total = 0
+
+
+
+for i in range(1, n):
+    if nums[i] <= nums[i - 1]:
+        total += 1
     else:
-        d += 1          # 
+        cnt1.append(total)
+        total = 0
+cnt1.append(total)
 
-# for j in range(len(prime)):
-#     print(j)
+total = 0
+
+for i in range(1, n):
+    if nums[i] >= nums[i - 1]:
+        total += 1
+    else:
+        cnt2.append(total)
+        total = 0
+cnt2.append(total)    
+
+result1 = max(cnt1)
+result2 = max(cnt2)
 
 
-# 72 -> 36 -> 18 -> 9 -> 3 -> 1
+if result1 >= result2:
+    print(result1 + 1)
+
+else:
+    print(result2 + 1)
+
+
