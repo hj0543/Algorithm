@@ -1,3 +1,7 @@
+'''
+시간초과 해결법 고민중
+'''
+
 import sys
 sys.stdin = open('input.txt', 'r')
 
@@ -28,7 +32,7 @@ while True:
     cnt = 0 # 소수의 개수 초기값 0 설정
 
 
-    for i in range(n + 1, (2 * n) + 1): # n초과 2n미만의 범위에서
+    for i in range(n + 1, (2 * n) + 1): # 임의의 정수 i가 초과 2n미만의 범위에서
         if is_prime(i) == True: # i가 소수라면
             cnt += 1 # 카운트를 한다.
         else: # 아니면 패스
