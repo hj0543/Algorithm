@@ -1,23 +1,19 @@
 import sys
 sys.stdin = open('input.txt', 'r')
 
-# 7567
+# 2628
 import sys
 input = sys.stdin.readline
 
-S = int(input())
+W, H = map(int, input().split())
 
-votes = list(input())
-    
+N = int(input())
 
-if votes.count('A') > votes.count('B'):
-    print('A')
-elif votes.count('A') < votes.count('B'):
-    print('B')
-else:
-    print('Tie')
+line = []
 
-
+for _ in range(N):
+    nums = map(int, input().split())
+    line.append(nums)
 
 
 
