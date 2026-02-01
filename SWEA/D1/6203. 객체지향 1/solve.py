@@ -1,7 +1,0 @@
-import sys
-sys.stdin = open('input.txt', 'r')
-
-numbers = list(map(int, input().split(',')))
- 
-print(f'국어, 영어, 수학의 총점: {sum(numbers)}')
-
