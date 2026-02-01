@@ -16,19 +16,20 @@ for k in range(1, N + 1):
 
     x, y, w, h = map(int, input().split())
 
-    for i in range(x, x + w):
-        for j in range(y, y + h):
-            paper[i][j] = k
+    for j in range(y, y + h): # 이 부분 슬라이싱 으로 수정함.
+        paper[j][x:(x + w)] = [k] * w # j행 x 가로 범위만큼 k로 채운다.
 
-# 각 보이는 색종이 넓이 저장할 리스트
-total = [0] * (N + 1)    
+
+# # 각 보이는 색종이 넓이 저장할 리스트
+# total = [0] * (N + 1)    
+
 
 # 전체 색종이에 보이는 번호를 그 리스트 번호에 담는다
-for i in range(1001):
+# 제약조건 없애기 위해 변수선언 삭제
+# 제약 조건 없애기 위해 for문 범위 수정
+for i in range(1, N + 1):
+    total = 0
     for j in range(1001):
-        num = paper[i][j]
-        if num > 0:
-            total[num] += 1
+        total += paper[j].count(i) 
 
-for k in range(1, N + 1):
-    print(total[k])
+    print(total)
