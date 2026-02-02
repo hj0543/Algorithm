@@ -1,20 +1,25 @@
 import sys
 sys.stdin = open('input.txt', 'r')
 
-# 19532
+# 2578
 import sys
 input = sys.stdin.readline
 
-a, b, c, d, e, f = map(int, input().split())
+A = [] # 행렬
 
-# x 값 구하기
-if a * e - d * b != 0:
-    x = (c * e - f * b) // (a * e - d * b)
+for _ in range(9):
+    A.append(list(map(int, input().split())))
 
-# y 값 구하기
-if b != 0:
-    y = (c - a * x) // b
-else:
-    y = (f - d * x) // e
+max_number = 0 # 최대값 초기값 설정
+x = 0 # 최대값일때 행
+y = 0 # 최대값일때 열
 
+for i in range(9):
+    for j in range(9):
+        if A[i][j] >= max_number: # 최대값 갱신
+            max_number = A[i][j]
+            x = i + 1
+            y = j + 1
+
+print(max_number)
 print(x, y)
