@@ -16,7 +16,7 @@ for i in range(TC):
 
 for i in range(len(data)):
     for j in range(len(data)):
-if WH[0] > WH[i]:
-        rank[i]
+        if WH[0] > WH[i]:
+# rank[i]
 
 print(len(data))
