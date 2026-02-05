@@ -8,15 +8,23 @@ input = sys.stdin.readline
 
 TC = int(input())
 
-rank = [0] * TC
-data = []
+weight = []
+height = []
+nums = [i for i in range(TC)]
+rank = []
+
 for i in range(TC):
-    WH = list(map(int, input().split()))
-    data.append(WH)
+    w, h = map(int, input().split())
+    weight.append(w)
+    height.append(h)
 
-for i in range(len(data)):
-    for j in range(len(data)):
-if WH[0] > WH[i]:
-        rank[i]
+for i in range(len(weight)):
+    for j in range(len(weight) - 1):
+        if weight[j] < weight[j + 1]:
+            weight[j], weight[j + 1] = weight[j + 1], weight[j]
+            height[j], height[j + 1] = height[j + 1], height[j]
+            nums[j], nums[j + 1] = nums[j + 1], nums[j]
 
-print(len(data))
+for i in range(len(TC)-1):
+    if nums[i] > nums[i+1]:
+        rank.append(nums[i+1])
