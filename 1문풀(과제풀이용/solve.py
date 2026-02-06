@@ -5,21 +5,45 @@ sys.stdin = open('input.txt', 'r')
 import sys
 input = sys.stdin.readline
 
+TC = int(input())
 
-def fibo(n):
-    a = 1
-    b = 1
-    if n == 0:
-        return 0
-    if n == 1 or n == 2:
-        return 1
-    for i in range(1, n):
-        a, b = b, b + a
+for tc in range(TC):
+    N, M = map(int, input().split())
 
-    return a
+    board = []
 
-N = int(input())
+    for i in range(N):
+        board.append(list(input().rstrip()))
 
-print(fibo(N))
+    row_words = []
+    column_words = []
+
+    # row_words 에 M의 길이만큼 잘라서 넣기
+    for i in range(N):
+        for j in range(N - M + 1):
+            temp1 = []
+            for k in range(M):
+                temp1.append(board[i][j+k])
+            row_words.append(temp1)
+
+    # column_words 에 M의 길이만큼 잘라서 넣기
+    for i in range(N):
+        for j in range(N - M + 1):
+            temp2 = []
+            for k in range(M):
+                temp2.append(board[j+k][i])
+            column_words.append(temp2)
+
+    result = ''
+
+    for i in range(len(row_words)):
+        if row_words[i] == row_words[i][::-1]:
+            result = row_words[i]
+
+    for i in range(len(column_words)):
+        if column_words[i] == column_words[i][::-1]:
+            result = column_words[i]
+
+    print(f'#{tc+1} {"".join(result)}')
 
 
