@@ -1,13 +1,17 @@
 import sys
 sys.stdin = open('input.txt', 'r')
 
-# 7568
+# 10816
 import sys
 input = sys.stdin.readline
 
+N = int(input())
+cards1 = list(map(str, input().split()))
+M = int(input())
+cards2 = list(map(str, input().split()))
 
-TC = int(input())
 
+<<<<<<< HEAD
 weight = []
 height = []
 nums = [i for i in range(TC)]
@@ -28,3 +32,6 @@ for i in range(len(weight)):
 for i in range(len(TC)-1):
     if nums[i] > nums[i+1]:
         rank.append(nums[i+1])
+=======
+
+>>>>>>> e66a6bbba34d944ef990b6fbec4c3e97a868a5fa
