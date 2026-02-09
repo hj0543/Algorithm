@@ -3,18 +3,54 @@ sys.stdin = open('input.txt', 'r')
 
 ##################################################
 
-def my_len(arr):
-    cnt = 0
-    for _ in arr:
-        cnt += 1
-    return cnt
+TC = int(input())
+for tc in range(TC):
+    words = input().rstrip()
 
-T = int(input())
+    stack = []
+    counts1 = 0
+    counts2 = 0
 
-for tc in range(1, T + 1):
-    A, B = input().split()
+    for char in words:
 
-    # B를 한 글자짜리 특수문자로 치환 -> replace도 쓰면 안되나,,?
-    result = A.replace(B, '*')
+        if char == '(':
+            if counts1 >= 0:
+                stack.append(char)
+                counts1 += 1
+            else:
+                print(0)
+                break
 
-    print(f"#{tc} {my_len(result)}")
+        elif char == ')':
+            if counts1 >= 1:
+                stack.append(char)
+                counts1 -= 1
+            else:
+                print(0)
+                break
+
+        elif char == '{':
+            if counts2 >= 0:
+                stack.append(char)
+                counts2 += 1
+            else:
+                print(0)
+                break
+
+        elif char == '}':
+            if counts2 >= 1:
+                stack.append(char)
+                counts2 -= 1
+            else: 
+                print(0)
+                break
+
+        else:
+            continue
+    if counts1 == 0 and counts2 == 0:
+        print(1)
+    else:
+        print(0)
+
+    print(stack)    
+    # print(f'#{tc+1} {result}')
