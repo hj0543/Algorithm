@@ -8,49 +8,25 @@ for tc in range(TC):
     words = input().rstrip()
 
     stack = []
-    counts1 = 0
-    counts2 = 0
+
+    is_valid = True
 
     for char in words:
-
-        if char == '(':
-            if counts1 >= 0:
-                stack.append(char)
-                counts1 += 1
-            else:
-                print(0)
-                break
-
+        if char == '(' or char == '{':
+            stack.append(char)
         elif char == ')':
-            if counts1 >= 1:
-                stack.append(char)
-                counts1 -= 1
-            else:
-                print(0)
+            # 스택이 비었거나, 짝이 안 맞으면 실패
+            if not stack or stack.pop() != '(':
+                is_valid = False
                 break
-
-        elif char == '{':
-            if counts2 >= 0:
-                stack.append(char)
-                counts2 += 1
-            else:
-                print(0)
-                break
-
         elif char == '}':
-            if counts2 >= 1:
-                stack.append(char)
-                counts2 -= 1
-            else: 
-                print(0)
+            if not stack or stack.pop() != '{':
+                is_valid = False
                 break
+    
+    if stack:
+        is_valid = False
 
-        else:
-            continue
-    if counts1 == 0 and counts2 == 0:
-        print(1)
-    else:
-        print(0)
+    result = 1 if is_valid else 0
+    print(f'#{tc+1} {result}')
 
-    print(stack)    
-    # print(f'#{tc+1} {result}')
