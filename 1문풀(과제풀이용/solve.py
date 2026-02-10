@@ -3,30 +3,37 @@ sys.stdin = open('input.txt', 'r')
 
 ##################################################
 
+
+def dfs(arr, v):
+    visited[v] = True
+    for w in arr[v]:
+        if visited[w] != True:
+            dfs(arr, w)
+
+
 TC = int(input())
+
 for tc in range(TC):
-    words = input().rstrip()
+    E = int(input())
 
-    stack = []
+    # 인접 리스트 요소 받기
 
-    is_valid = True
+    data = list(map(int, input().split()))
 
-    for char in words:
-        if char == '(' or char == '{':
-            stack.append(char)
-        elif char == ')':
-            # 스택이 비었거나, 짝이 안 맞으면 실패
-            if not stack or stack.pop() != '(':
-                is_valid = False
-                break
-        elif char == '}':
-            if not stack or stack.pop() != '{':
-                is_valid = False
-                break
-    
-    if stack:
-        is_valid = False
 
-    result = 1 if is_valid else 0
-    print(f'#{tc+1} {result}')
+    # 인접리스트 요소
+    arr = [[] for _ in range(100 + 1)]
+    visited = [0] * (100 + 1)
 
+
+    for i in range(E):  # 간선의 개수만큼 돌아야함
+        s, e = data[2 * i], data[2 * i + 1]  # 인덱스 2개씩 쌍으로 받기 위해서 (1, 2) (1, 3) (2, 4)...
+        arr[s].append(e)
+
+
+    dfs(arr, 0)
+
+    if visited[99] == True:
+        print(f'#{tc+1} 1')
+    else:
+        print(f'#{tc+1} 0')
