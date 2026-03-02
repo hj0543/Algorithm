@@ -5,23 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7766c76c-12b8-4a09-b0f6-3dca60c6e067" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/1문풀-SWEA 2805/input.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/1문풀-SWEA 2805/solve.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2문풀-SWEA 11315/input.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2문풀-SWEA 11315/solve.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/5문풀-BOJ 2116/input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2-SWEA/input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2-SWEA/solve.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/4-BOJ/input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/4-BOJ/solve.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1문풀(과제풀이용/input.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/1문풀(과제풀이용/solve.py" beforeDir="false" afterPath="$PROJECT_DIR$/5문풀-BOJ 2116/solve.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1문풀(과제풀이용/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/1문풀-SWEA 2805/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2문풀-SWEA IM 사냥꾼/input.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2문풀-SWEA IM 사냥꾼/solve.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2문풀-SWEA IM 사냥꾼/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/2문풀-SWEA 11315/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5문풀-BOJ 10157/input.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/5문풀-BOJ 10157/solve.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/5문풀-BOJ 10157/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/5문풀-BOJ 2116/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/고민 중인 문제/BOJ 4948/4948.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/고민 중인 문제/BOJ 4948/input.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-SWEA/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/1-SWEA/input.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-SWEA/solve.py" beforeDir="false" afterPath="$PROJECT_DIR$/1-SWEA/solve.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-SWEA/test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2-BOJ/input.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2-BOJ/solve.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2-BOJ/test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/3-BOJ/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/3-BOJ/input.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3-BOJ/solve.py" beforeDir="false" afterPath="$PROJECT_DIR$/3-BOJ/solve.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3-BOJ/test.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,16 +37,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "F:/GitHub/Algorithm",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\GitHub\Algorithm" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\GitHub\Algorithm\1-SWEA" />
+      <recent name="F:\GitHub\Algorithm\2-SWEA" />
+      <recent name="F:\GitHub\Algorithm" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>

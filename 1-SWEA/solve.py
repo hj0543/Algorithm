@@ -3,43 +3,39 @@ sys.stdin = open('input.txt', 'r')
 
 ##################################################
 
-TC = int(input())
-for tc in range(TC):
-    N = int(input())
-    board = []
-    for _ in range(N):
-        board.append(list(map(str, input().rstrip())))
+dr = [-1, 0, 1, 0]
+dc = [0, 1, 0, -1]
 
-    found = False
-    # 4방향 (우, 하, 우하 대각선, 좌하 대각선)
-    dr = [0, 1, 1, 1]
-    dc = [1, 0, 1, -1]
+def dfs(r, c):
+    if maze[r][c] == 3:
+        return True
 
-    for r in range(N):
-        for c in range(N):
-            if board[r][c] == 'o':
-                # 'o'를 발견하면 4방향으로 5개가 이어지는지 확인
-                for d in range(4):
-                    count = 1
-                    nr, nc = r + dr[d], c + dc[d]
+    for i in range(4):
+        nr = r + dr[i]
+        nc = c + dc[i]
 
-                    # 해당 방향으로 연속 5개 확인
-                    while 0 <= nr < N and 0 <= nc < N and board[nr][nc] == 'o':
-                        count += 1
-                        if count >= 5:
-                            found = True
-                            break
-                        nr += dr[d]
-                        nc += dc[d]
-                    if found: break
-            if found: break
-        if found: break
+        if 0 <= nr < 16 and 0 <= nc < 16:
+            if maze[nr][nc] != 1 and not visited[nr][nc]:
+                visited[nr][nc] = True
+                if dfs(nr, nc):
+                    return True
+    return False
 
-    if found:
-        print(f"#{tc+1} YES")
+for _ in range(10):
+    tc = int(input())
+    maze = []
+    for _ in range(16):
+        maze.append(list(map(int,input().rstrip())))
+
+    visited = [[False] * 16 for _ in range(16)]
+
+    r, c = 0, 0
+    for i in range(16):
+        for j in range(16):
+            if maze[i][j] == 2:
+                r, c = i, j
+
+    if dfs(r, c):
+        print(f'#{tc} 1')
     else:
-        print(f"#{tc+1} NO")
-
-
-
-
+        print(f'#{tc} 0')
