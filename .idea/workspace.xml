@@ -4,22 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7766c76c-12b8-4a09-b0f6-3dca60c6e067" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/2-SWEA/input.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2-SWEA/solve.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/4-BOJ/input.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/4-BOJ/solve.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1-SWEA/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/1-SWEA/input.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1-SWEA/solve.py" beforeDir="false" afterPath="$PROJECT_DIR$/1-SWEA/solve.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1-SWEA/test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2-BOJ/input.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2-BOJ/solve.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2-BOJ/test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3-BOJ/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/3-BOJ/input.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3-BOJ/solve.py" beforeDir="false" afterPath="$PROJECT_DIR$/3-BOJ/solve.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3-BOJ/test.py" beforeDir="false" />
-    </list>
+    <list default="true" id="7766c76c-12b8-4a09-b0f6-3dca60c6e067" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
