@@ -2,41 +2,44 @@ import sys
 sys.stdin = open('input.txt', 'r')
 
 ##################################################
-# 1012
-
+# 2667
 import sys
 input = sys.stdin.readline
 
-T = int(input())
-for t in range(T):
-    M, N, K = map(int,input().split())
-    grid = []
-    for _ in range(N):
-        grid.append([0] * M)
-    for _ in range(K):
-        x, y = map(int,input().split())
-        grid[y][x] = 1
+from collections import deque
 
+dr = [-1, 0, 1, 0]
+dc = [0, 1, 0, -1]
+
+def bfs(sr ,sc):
+    q = deque([(sr, sc)])
     counts = 0
-    for i in range(N):
-        for j in range(M):
-            if grid[i][j] == 1:     # 배추 발견
-                counts += 1         # 구역 1개 추가
-                grid[i][j] = 0      # 방문한 곳은 0으로 처리
-                stack = [[i, j]]    #방문한 곳을 담아둘 스택
+    while q:
+        r, c = q.popleft()
+        grid[r][c] = 0
 
-                while stack:
-                    cur_i, cur_j = stack.pop()  # 현재 방문한 곳을 우선 pop, for문 완료 후 전체 pop
+        for i in range(4):
+            nr = r + dr[i]
+            nc = c + dc[i]
+            if 0 <= nr < n and 0 <= nc < n:
+                if grid[nr][nc] != 0:
+                    grid[nr][nc] = 0
+                    counts += 1
+    return counts
 
-                    for di, dj in [(0,1), (0,-1), (1,0), (-1,0)]:
-                        ni, nj = cur_i + di, cur_j + dj
+n = int(input())
+grid = []
+for _ in range(n):
+    grid.append(list(map(int,input().rstrip())))
 
-                        if 0 <= ni < N and 0 <= nj < M and grid[ni][nj] == 1:
-                            grid[ni][nj] = 0
-                            stack.append([ni, nj])
+apt = 0
+houses = []
+for i in range(n):
+    for j in range(n):
+        if grid[i][j] != 0:
+            houses.append(bfs(i, j))
+            apt += 1
 
-    print(counts)
-
-
-
-
+print(apt)
+for i in range(apt):
+    print(houses)
