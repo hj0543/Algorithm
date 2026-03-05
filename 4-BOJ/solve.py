@@ -2,31 +2,55 @@ import sys
 sys.stdin = open('input.txt', 'r')
 
 ##################################################
-# 1697
+# 2583
 import sys
 input = sys.stdin.readline
 from collections import deque
 
-n, k = map(int, input().split())
+dr = [-1, 0, 1, 0]
+dc = [0, 1, 0, -1]
 
-V = 100000
-visited = [False] * (V + 1)
+def bfs(sr, sc):
+    q = deque([(sr, sc)])
+    visited[sr][sc] = True
+    area = 1
 
-q = deque()
+    while q:
+        r, c = q.popleft()
 
-# (현재 위치, 현재까지 걸린 시간)
-q.append((n, 0))
-visited[n] = True
+        for i in range(4):
+            nr = r + dr[i]
+            nc = c + dc[i]
 
-while q:
-    x, time = q.popleft()
+            if 0 <= nr < m and 0 <= nc < n:
+                if grid[nr][nc] == 0 and not visited[nr][nc]:
+                    visited[nr][nc] = True
+                    q.append((nr, nc))
+                    area += 1
+    return area
 
-    # 목표 위치에 도착했다면 그 순간의 시간이 최소 시간
-    if x == k:
-        print(time)
-        break
+m, n, k = map(int, input().split())
+grid = [[0] * n for _ in range(m)]
 
-    for nx in (x - 1, x + 1, x * 2):
-        if 0 <= nx <= V and not visited[nx]:
-            visited[nx] = True
-            q.append((nx, time + 1))
+for i in range(k):
+    c1, r1, c2, r2 = map(int, input().split())
+
+    for j in range(r1, r2):
+        for k in range(c1, c2):
+            grid[j][k] = 1
+# print(grid)
+
+visited = [[0] * n for _ in range(m)]
+
+counts = 0
+total = []
+
+for i in range(m):
+    for j in range(n):
+        if grid[i][j] == 0 and not visited[i][j]:
+            total.append(bfs(i, j))
+            counts += 1
+result = sorted(total)
+
+print(counts)
+print(*result)
