@@ -2,46 +2,48 @@ import sys
 sys.stdin = open('input.txt', 'r')
 
 ##################################################
-# 11403
+# 1325
+import sys
+input = sys.stdin.readline
+from collections import deque
 
+def bfs(s):
+    visited = [False] * (n + 1)
 
-def dfs(s, v, d):
-    visited[v] = True
-    dist[v] = d
+    queue = deque([s])
 
-    for w in graph[v]:
-        if w == s:  # 시작점으로 돌아오는 간선을 발견하면
-            cycle[s] = True  # 사이클 존재 표시
-        if not visited[w]:
-            dfs(s, w, d + 1)
+    visited[s] = True
+    count = 1
 
-n = int(input())
-grid = []
-for _ in range(n):
-    grid.append(list(map(int, input().split())))
+    while queue:
+        v = queue.popleft()
+
+        for w in graph[v]:
+            if not visited[w]:
+                visited[w] = True
+                queue.append(w)
+                count += 1
+    return count
+
+n, m = map(int, input().split())
 
 graph = [[] for _ in range(n + 1)]
 
+for _ in range(m):
+    s, e = map(int, input().split())
 
-for i in range(n):
-    for j in range(n):
-        if grid[i][j] == 1:
-            graph[i].append(j)
+    graph[e].append(s)
 
-result = [[0] * n for _ in range(n)]
+max_counts = 0
+result = []
 
-for i in range(n):
-    visited = [False] * (n + 1)
-    dist = [0] * (n + 1)
-    cycle = [False] * (n + 1)
+for i in range(1, n + 1):
+    cnt = bfs(i)
 
-    dfs(i, i, 0)
+    if cnt > max_counts:
+        max_counts = cnt
+        result = [i]
+    elif cnt == max_counts:
+        result.append(i)
 
-    for j in range(n):
-        if i != j and visited[j]:
-            result[i][j] = 1
-        if i == j and cycle[i]:
-            result[i][i] = 1
-
-for i in range(n):
-    print(*result[i])
+print(*result)
