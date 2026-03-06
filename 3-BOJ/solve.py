@@ -2,48 +2,38 @@ import sys
 sys.stdin = open('input.txt', 'r')
 
 ##################################################
-# 1325
+# 14567
 import sys
 input = sys.stdin.readline
 from collections import deque
 
-def bfs(s):
-    visited = [False] * (n + 1)
+def topology_sort():
+    q = deque()
+    result = [1] * (n + 1)
 
-    queue = deque([s])
+    for i in range(1, n + 1):
+        if indegree[i] == 0:
+            q.append(i)
 
-    visited[s] = True
-    count = 1
+    while q:
+        now = q.popleft()
 
-    while queue:
-        v = queue.popleft()
+        for i in graph[now]:
+            indegree[i] -= 1
+            result[i] = max(result[i], result[now] + 1)
 
-        for w in graph[v]:
-            if not visited[w]:
-                visited[w] = True
-                queue.append(w)
-                count += 1
-    return count
+            if indegree[i] == 0:
+                q.append(i)
+    print(*result[1:])
 
 n, m = map(int, input().split())
 
 graph = [[] for _ in range(n + 1)]
+indegree = [0] * (n + 1)
 
 for _ in range(m):
     s, e = map(int, input().split())
+    graph[s].append(e)
+    indegree[e] += 1
 
-    graph[e].append(s)
-
-max_counts = 0
-result = []
-
-for i in range(1, n + 1):
-    cnt = bfs(i)
-
-    if cnt > max_counts:
-        max_counts = cnt
-        result = [i]
-    elif cnt == max_counts:
-        result.append(i)
-
-print(*result)
+topology_sort()
