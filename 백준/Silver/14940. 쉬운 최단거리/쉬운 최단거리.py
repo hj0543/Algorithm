@@ -2,8 +2,10 @@ import sys
 input = sys.stdin.readline
 from collections import deque
 
-def bfs(n, m, maze):
-    visited = [[-1] * m for _ in range(n)]
+dr = [-1, 0, 1, 0]
+dc = [0, 1, 0, -1]
+
+def bfs(n, m):
     q = deque()
 
     for i in range(n):
@@ -13,9 +15,6 @@ def bfs(n, m, maze):
                 visited[i][j] = 0
             elif maze[i][j] == 0:
                 visited[i][j] = 0
-
-    dr = [-1, 0, 1, 0]
-    dc = [0, 1, 0, -1]
 
     while q:
         r, c = q.popleft()
@@ -36,7 +35,8 @@ maze = []
 for _ in range(n):
     maze.append(list(map(int, input().split())))
 
-result = bfs(n, m, maze)
+visited = [[-1] * m for _ in range(n)]
+result = bfs(n, m)
 
 for row in result:
     print(*row)
