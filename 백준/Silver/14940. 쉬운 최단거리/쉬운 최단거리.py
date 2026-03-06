@@ -5,16 +5,9 @@ from collections import deque
 dr = [-1, 0, 1, 0]
 dc = [0, 1, 0, -1]
 
-def bfs(n, m):
-    q = deque()
+def bfs(sr, sc):
+    q = deque([(sr, sc)])
 
-    for i in range(n):
-        for j in range(m):
-            if maze[i][j] == 2:
-                q.append((i, j))
-                visited[i][j] = 0
-            elif maze[i][j] == 0:
-                visited[i][j] = 0
 
     while q:
         r, c = q.popleft()
@@ -28,7 +21,6 @@ def bfs(n, m):
                     visited[nr][nc] = visited[r][c] + 1
                     q.append((nr, nc))
 
-    return visited
 
 n, m = map(int, input().split())
 maze = []
@@ -36,7 +28,17 @@ for _ in range(n):
     maze.append(list(map(int, input().split())))
 
 visited = [[-1] * m for _ in range(n)]
-result = bfs(n, m)
+sr, sc = -1, -1
 
-for row in result:
+for i in range(n):
+    for j in range(m):
+        if maze[i][j] == 2:
+            q.append((i, j))
+            visited[i][j] = 0
+        elif maze[i][j] == 0:
+            visited[i][j] = 0
+
+bfs(sr, sc)
+
+for row in visited:
     print(*row)
