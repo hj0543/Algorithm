@@ -4,8 +4,8 @@
 `Python`을 주력으로 사용합니다.    
 
 **2026.01.28** 백준연동 자동커밋푸시 작업 [HOW TO?](https://github.com/BaekjoonHub/BaekjoonHub)
-* 26. 02. 19 SW역량평가 IM 취득
-* 26. 03. 06 SW역량평가 A 취득
+* **2026.02.19** SW역량평가 IM 취득
+* **2026.03.06** SW역량평가 A 취득
 <br>
 
 ## 🏆 My Solved.ac Status
