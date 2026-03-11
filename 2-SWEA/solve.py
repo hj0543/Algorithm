@@ -4,46 +4,51 @@ sys.stdin = open('input.txt', 'r')
 ##################################################
 
 # [로직전략]
-# 1. 2개를 뽑는 모든 경우의 수를 구해서 시너지 계산하기 (itertools 사용해도 됨?)
-# 2. A, B 따로 담아두기
-# 3. 완탐으로 순회하면서 최소값 갱신
-from itertools import combinations
+# 1. 순열로 돌려서 최소값 갱신하기
 
-def synergy(ingredients, grid):
-    flavor = 0
-    # 그룹 내에서 2개를 뽑는 모든 조합
-    for i, j in combinations(ingredients, 2):
-        flavor += grid[i][j] + grid[j][i]
-    return flavor
+from itertools import permutations
 
+def get_dist(p1, p2):
+    return abs(p1[0] - p2[0]) + abs(p1[1] - p2[1])
 
 TC = int(input())
-
 for tc in range(TC):
     N = int(input())
-    grid = [list(map(int, input().split())) for _ in range(N)]
+    data = list(map(int, input().split()))
+    
+    # 회사와 집 좌표
+    company = (data[0], data[1])
+    home = (data[2], data[3])
+    
+    # 고객 좌표
+    customers = []
+    for i in range(4, len(data), 2):
+        customers.append((data[i], data[i+1]))
 
-    # 0부터 N-1
-    all_ingredients = list(range(N))
-    min_diff = float('inf')
+    # 1. 고객 인덱스 리스트 생성
+    customer_indices = [i for i in range(N)]
 
-    # N개 중 N/2개를 뽑는 모든 조합 순회
-    for A in combinations(all_ingredients, N // 2):
+    min_total = float('inf')
 
-        B = []  # 나머지가 B
-        for x in all_ingredients:
-            if x not in A:
-                B.append(x)
+    # 2. 모든 순열 탐색
+    for p in permutations(customer_indices):
+        current_dist = 0
+        
+        # 회사 -> 첫 번째 고객
+        current_dist += get_dist(company, customers[p[0]])
+        
+        # 고객 -> 고객
+        for i in range(N - 1):
+            current_dist += get_dist(customers[p[i]], customers[p[i+1]])
+            if current_dist >= min_total: # (선택 사항) 중간 최적화
+                break
+        else:
+            # 마지막 고객 -> 집
+            current_dist += get_dist(customers[p[-1]], home)
+            if current_dist < min_total:
+                min_total = current_dist
 
-        # 각 음식의 맛 계산
-        flavor_a = synergy(A, grid)
-        flavor_b = synergy(B, grid)
-
-        # 차이의 최솟값 갱신
-        diff = abs(flavor_a - flavor_b)
-        min_diff = min(diff, min_diff)
-
-    print(f"#{tc + 1} {min_diff}")
+    print(f'#{tc+1} {min_total}')
 
 
 
