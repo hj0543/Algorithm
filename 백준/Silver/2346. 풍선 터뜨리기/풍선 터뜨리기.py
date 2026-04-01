@@ -1,30 +1,42 @@
+# queue 안쓰고 테스트용
 
 import sys
 input = sys.stdin.readline
-from collections import deque
 
 n = int(input())
-moves = list(map(int, input().split()))
+move = [0] + list(map(int, input().split()))
 
-queue = deque()
-for i in range(n):
-    queue.append((i + 1, moves[i]))
+left = [0] * (n + 1)
+right = [0] * (n + 1)
+
+for i in range(1, n + 1):
+    left[i] = i - 1 if i > 1 else n
+    right[i] = i + 1 if i < n else 1
 
 result = []
+cur = 1
 
-while queue:
-    idx, move = queue.popleft()
-    result.append(idx)
+for _ in range(n):
+    result.append(cur)
+    step = move[cur]
 
-    if not queue:
+    if len(result) == n:
         break
 
-    if move > 0:
-        queue.rotate(-(move - 1))
+    l = left[cur]
+    r = right[cur]
+    right[l] = r
+    left[r] = l
+
+    if step > 0:
+        nxt = r
+        for _ in range(step - 1):
+            nxt = right[nxt]
     else:
-        queue.rotate(-move)
-    
+        nxt = l
+        for _ in range(-step - 1):
+            nxt = left[nxt]
+
+    cur = nxt
+
 print(*result)
-
-
-
