@@ -1,54 +1,38 @@
 import sys
 sys.stdin = open("input.txt", "r")
 
-# SWEA 1249
-import heapq
+# SWEA 4008
+# 환경 부담 세율(E)과 각 해저터널 길이(L)의 제곱의 곱(E * L^2)만큼 지불
 
-INF = 10 ** 9
-
-dr = [-1, 0, 1, 0]
-dc = [0, 1, 0, -1]
+def enviromental_fee(x1, y1, x2, y2):
+    return (x1 - x2) ** 2 + (y1 - y2) ** 2
 
 
-def dijkstra(grid, n):
-    dist = [[INF] * n for _ in range(n)]
-    pq = [(0, 0, 0)]
-    dist[0][0] = 0
+def find(x):
+    if parent[x] != x:
+        parent[x] = find(parent[x])
+    return parent[x]
 
-    while pq:
-        cost, r, c = heapq.heappush(pq)
 
-        if dist[r][c] < cost:
-            continue
+def union(a, b):
+    a = find(a)
+    b = find(b)
 
-        if r == n - 1 and c == n - 1:
-            return cost
-        
-        for d in range(4):
-            nr = r + dr[d]
-            nc = c + dc[d]
+    if a == b:
+        return False
 
-        if not (0 <= nr < n and 0 <= nc < n):
-            continue
+    parent[b] = a
+    return True
 
-        next_cost = cost + 1
-        if grid[nr][nc] > grid[r][c]:
-            next_cost += grid[nr][nc] - grid[r][c]
-
-        if next_cost < dist[nr][nc]:
-                dist[nr][nc] = next_cost
-                heapq.heappush(pq, (next_cost, nr, nc))
-
-    return dist[n - 1][n - 1]
 
 # ---------------------------------------------
 
-# 입력부
+# 입력 및 실행
 
 T = int(input())
 for tc in range(1, T + 1):
     n = int(input())
-    grid = [list(map(int, input().strip())) for _ in range(n)]
+    op_numbers = list(map(int, input().split()))
+    numbers = list(map(int, input().split()))
 
-    result = dijkstra(grid, n)
-    print(f'#{tc} {result}')
+

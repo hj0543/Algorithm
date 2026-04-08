@@ -1,34 +1,34 @@
-def synergy(mask):
-    # mask에 포함된 재료들끼리의 시너지 합을 계산
-    flavor = 0
-    for i in range(N):
-        for j in range(i + 1, N):
-            if (mask & (1 << i)) and (mask & (1 << j)):
-                flavor += grid[i][j] + grid[j][i]
-    return flavor
- 
- 
+from itertools import combinations
+  
+def synergy(ingredients, matrix):
+    score = 0
+    # 그룹 내에서 2개를 뽑는 모든 조합
+    for i, j in combinations(ingredients, 2):
+        score += matrix[i][j] + matrix[j][i]
+    return score
+  
 TC = int(input())
- 
+  
 for tc in range(TC):
     N = int(input())
-    grid = [list(map(int, input().split())) for _ in range(N)]
- 
+    matrix = [list(map(int, input().split())) for _ in range(N)]
+      
+    # 0부터 N-1
+    all_ingredients = list(range(N))
     min_diff = float('inf')
- 
-    # 모든 부분집합 중 재료 개수가 N // 2개인 경우만 선택
-    for mask in range(1 << N):
-        if bin(mask).count('1') != N // 2:
-            continue
- 
-        # A 음식에 들어갈 재료 집합
-        A = mask
-        # B 음식은 전체 집합에서 A를 제외한 나머지 재료 집합
-        B = ((1 << N) - 1) ^ mask
- 
-        flavor_a = synergy(A)
-        flavor_b = synergy(B)
- 
-        min_diff = min(min_diff, abs(flavor_a - flavor_b))
- 
-    print(f"#{tc + 1} {min_diff}")
+  
+    # N개 중 N/2개를 뽑는 모든 조합 순회
+    for food_a in combinations(all_ingredients, N // 2):
+        # A에 속하지 않은 나머지가 food_b
+        food_b = [x for x in all_ingredients if x not in food_a]
+          
+        # 각 음식의 맛 계산
+        score_a = synergy(food_a, matrix)
+        score_b = synergy(food_b, matrix)
+          
+        # 차이의 최솟값 갱신
+        diff = abs(score_a - score_b)
+        if diff < min_diff:
+            min_diff = diff
+  
+    print(f"#{tc+1} {min_diff}")
