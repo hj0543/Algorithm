@@ -1,4 +1,4 @@
-# 출력방법 수정, import sys; sys ~~~ 추가
+# import sys; sys.st  ~~~ 수정
 import sys
 input = sys.stdin.readline
 
@@ -26,7 +26,4 @@ for j in range(q):
         sets[b].clear()
         
     else:
-        result.append(len(sets[query[1]]))
-        
-for ans in result:
-    print(ans)
+        print(len(sets[query[1]]))
