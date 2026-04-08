@@ -8,8 +8,7 @@ result = [set() for _ in range(N + 1)]
 for i in range(1, N + 1):
     data = list(map(int, input().split()))
     k = data[0]
-    if k:
-        result[i] = set(data[1:])
+    result[i] = set(data[1:])
 
 out = []
 
