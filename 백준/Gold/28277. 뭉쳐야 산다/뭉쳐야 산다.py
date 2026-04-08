@@ -1,33 +1,32 @@
+# 출력방법 수정, import sys; sys ~~~ 추가
 import sys
 input = sys.stdin.readline
 
-N, Q = map(int, input().split())
+n, q = map(int, input().split())
 
-result = [set() for _ in range(N + 1)]
+sets = [set() for _ in range(n+1)]
+for i in range(1, n+1):
+    s = list(map(int, input().split()))
+    sets[i] = set(s[1:])
 
-for i in range(1, N + 1):
-    data = list(map(int, input().split()))
-    k = data[0]
-    result[i] = set(data[1:])
-
-out = []
-
-for _ in range(Q):
-    cmd, a, *rest = map(int, input().split())
-    
-    # 집합 Sa를 Sa ∪ Sb로 바꾸고, Sb는 공집합으로 바꾼다.
-    if cmd == 1:
-        b = rest[0]
-
-        if len(result[a]) < len(result[b]):
-            result[a], result[b] = result[b], result[a]
-
-        result[a].update(result[b])
-        result[b].clear()
-    
-    # 집합 Sa의 크기를 출력한다.
+result = []
+for j in range(q):
+    query = tuple(map(int, input().split()))
+    if query[0] == 1:
+        a, b = query[1], query[2]
+        
+        # 큰 집합을 a로 
+        if len(sets[a]) < len(sets[b]):
+            sets[a], sets[b] = sets[b], sets[a]
+        
+        # b는 항상 작은 집합
+        for k in sets[b]:
+            sets[a].add(k)
+            
+        sets[b].clear()
+        
     else:
-        out.append(str(len(result[a])))
-
-for ans in out:
+        result.append(len(sets[query[1]]))
+        
+for ans in result:
     print(ans)
