@@ -57,8 +57,11 @@ def find_shortest_bridge(island_idx):
 
     return float('inf')
 
+<<<<<<< HEAD
 
 # 백준 2146번은 N 하나만 입력받습니다.
+=======
+>>>>>>> 1aa6e4f2d0fa3e80cdc656761b5ebc8b977778b0
 n = int(input()) 
 grid = []
 for _ in range(n):
@@ -78,4 +81,8 @@ min_bridge = float('inf')
 for i in range(2, island_idx):
     min_bridge = min(min_bridge, find_shortest_bridge(i))
 
+<<<<<<< HEAD
 print(min_bridge)
+=======
+print(min_bridge)
+>>>>>>> 1aa6e4f2d0fa3e80cdc656761b5ebc8b977778b0
